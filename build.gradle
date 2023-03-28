@@ -1,0 +1,36 @@
+plugins {
+    id 'org.jetbrains.kotlin.jvm' version '1.8.10'
+    id 'application'
+}
+
+group 'ru.yarsu'
+version '1.0-SNAPSHOT'
+
+application {
+    mainClass = "ru.yarsu.Main"
+}
+
+kotlin {
+    jvmToolchain(11)
+}
+
+java {
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of('11'))
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation group: 'io.pebbletemplates', name: 'pebble', version: '3.2.0'
+    implementation group: 'org.slf4j', name: 'slf4j-simple', version: '2.0.6'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+}
+
+test {
+    useJUnitPlatform()
+}

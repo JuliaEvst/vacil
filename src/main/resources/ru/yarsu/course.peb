@@ -1,0 +1,115 @@
+    {% extends "./layout.peb" %}
+    {% block navigation%}../{% endblock %}
+    {% block content %}
+
+<div class="grid-x grid-padding-x">
+    <div class="cell">
+        <h1>Информация о курсе</h1>
+        <p>
+            <a href="../course-list.html">Назад к списку</a>
+        </p>
+        <p>
+            Название курса: {{ course.courseName }}
+        </p>
+        <p>
+            Имя лектора: {{ course.lecturerFullName }}
+        </p>
+        <p>
+            Описание: {{ course.description }}
+        </p>
+
+        <table class="hover">
+            <tbody>
+                <tr>
+                    <td>Понедельник</td>
+                    {% for schItem in scheduleItems %}
+                        {% if Monday == schItem.dayOfWeek %}
+                            <td>
+                                {% if schItem.courseId == course.id %}
+                                    {{ course.courseName }}<br>
+                                    {{ schItem.auditoriumNumber }}<br>
+                                    {{ schItem.startTime }}
+                                {% endif %}
+                            </td>
+                        {% endif %}
+                    {% endfor %}
+                </tr>
+
+                <tr>
+                    <td>Вторник</td>
+                    {% for schItem in scheduleItems %}
+                        {% if Tuesday == schItem.dayOfWeek %}
+                            <td>
+                                {% if schItem.courseId == course.id %}
+                                    {{ course.courseName }}<br>
+                                    {{ schItem.auditoriumNumber }}<br>
+                                    {{ schItem.startTime }}
+                                {% endif %}
+                            </td>
+                        {% endif %}
+                    {% endfor %}
+                </tr>
+
+                <tr>
+                    <td>Среда</td>
+                    {% for schItem in scheduleItems %}
+                        {% if Wednesday == schItem.dayOfWeek %}
+                            <td>
+                                {% if schItem.courseId == course.id %}
+                                    {{ course.courseName }}<br>
+                                    {{ schItem.auditoriumNumber }}<br>
+                                    {{ schItem.startTime }}
+                                {% endif %}
+                            </td>
+                        {% endif %}
+                    {% endfor %}
+                </tr>
+                <tr>
+                    <td>Четверг</td>
+                    {% for schItem in scheduleItems %}
+                        {% if Thursday == schItem.dayOfWeek %}
+                            <td>
+                                    {% if schItem.courseId == course.id %}
+                                        {{ course.courseName }}<br>
+                                        {{ schItem.auditoriumNumber }}<br>
+                                        {{ schItem.startTime }}
+                                    {% endif %}
+
+                            </td>
+                        {% endif %}
+                    {% endfor %}
+                </tr>
+                <tr>
+                    <td>Пятница</td>
+                    {% for schItem in scheduleItems %}
+                        {% if Friday == schItem.dayOfWeek %}
+                            <td>
+                                {% if schItem.courseId == course.id %}
+                                    {{ course.courseName }}<br>
+                                    {{ schItem.auditoriumNumber }}<br>
+                                    {{ schItem.startTime }}
+                                {% endif %}
+                            </td>
+                        {% endif %}
+                    {% endfor %}
+                </tr>
+                <tr>
+                    <td>Суббота</td>
+                    {% for schItem in scheduleItems %}
+                        {% if Saturday == schItem.dayOfWeek %}
+                            <td>
+                                {% if schItem.courseId == course.id %}
+                                    {{ course.courseName }}<br>
+                                    {{ schItem.auditoriumNumber }}<br>
+                                    {{ schItem.startTime }}
+                                {% endif %}
+                            </td>
+                        {% endif %}
+                    {% endfor %}
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{% endblock %}

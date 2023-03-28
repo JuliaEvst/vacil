@@ -1,0 +1,2 @@
+The content is: {{ scheduleItem.courseId }}
+The content is: {{ course.courseName }}

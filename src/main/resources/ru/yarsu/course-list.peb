@@ -1,0 +1,34 @@
+    {% extends "./layout.peb" %}
+    {% block navigation%}{% endblock %}
+    {% block content %}
+
+<div class="gird-x grid-padding-x">
+    <div class="cell">
+        <h1>Список курсов</h1>
+            <table class="hover">
+                <thead>
+                <tr>
+                    <td>Название</td>
+                    <td>ФИО преподавателя</td>
+                    <td>Расписание занятий по предмету</td>
+                </tr>
+                </thead>
+                <tbody>
+                    {% for course in courses %}
+                    <tr>
+                        <td> <a href="courses/{{ course.id }}.html">{{ course.courseName }}</a></td>
+                        <td>
+                        {{ course.lecturerFullName }}
+                        </td>
+                        <td>
+                        {{ course.description }}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+    </div>
+</div>
+
+    {% endblock %}
+
